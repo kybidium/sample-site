@@ -34,7 +34,7 @@ const services = [
 const proofPoints = [
   { value: "24 hr", label: "estimate follow-up" },
   { value: "5 yr", label: "workmanship warranty" },
-  { value: "199+", label: "local yards improved" },
+  { value: "200+", label: "yards improved" },
 ];
 
 export default function Home() {
