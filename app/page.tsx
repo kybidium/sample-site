@@ -23,12 +23,36 @@ const projectImages = [
 ];
 
 const services = [
-  "Landscape design",
-  "Paver patios",
-  "Mulch and bed refreshes",
-  "Lawn care",
-  "Drainage fixes",
-  "Seasonal cleanups",
+  {
+    title: "Landscape design",
+    detail:
+      "Layout planning, plant selection, bed shapes, material recommendations, and a clear scope before work starts.",
+  },
+  {
+    title: "Paver patios",
+    detail:
+      "Base prep, grading, edging, polymeric sand, and clean transitions from the house to the yard.",
+  },
+  {
+    title: "Mulch and bed refreshes",
+    detail:
+      "Weed cleanup, crisp edging, soil touch-ups, fresh mulch, and plant replacements where beds look tired.",
+  },
+  {
+    title: "Lawn care",
+    detail:
+      "Mowing, trimming, seasonal feeding, bare-spot repair, and maintenance plans sized to the property.",
+  },
+  {
+    title: "Drainage fixes",
+    detail:
+      "Low-spot correction, downspout routing, swales, French drains, and grading that moves water away.",
+  },
+  {
+    title: "Seasonal cleanups",
+    detail:
+      "Leaf removal, pruning, debris haul-off, spring bed prep, and fall cleanup before the weather turns.",
+  },
 ];
 
 const proofPoints = [
@@ -127,13 +151,22 @@ export default function Home() {
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {services.map((service) => (
-              <div
-                className="flex min-h-20 items-center justify-between border border-[#d7d0bf] bg-white px-5 py-4"
-                key={service}
+              <details
+                className="group border border-[#d7d0bf] bg-white px-5 py-4 transition hover:border-[#a8a083] open:border-[#69715b] open:shadow-[0_16px_36px_rgba(23,32,24,.09)]"
+                key={service.title}
               >
-                <span className="text-lg font-extrabold">{service}</span>
-                <span className="text-xl font-black text-[#9b5d32]">+</span>
-              </div>
+                <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
+                  <span className="text-lg font-extrabold">
+                    {service.title}
+                  </span>
+                  <span className="grid size-8 shrink-0 place-items-center rounded-full bg-[#f0eadc] text-xl font-black text-[#9b5d32] transition group-open:rotate-45 group-open:bg-[#e7b85f]">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 border-t border-[#e6dfcf] pt-3 text-sm font-semibold leading-6 text-[#4c5548]">
+                  {service.detail}
+                </p>
+              </details>
             ))}
           </div>
         </div>
